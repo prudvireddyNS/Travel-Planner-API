@@ -1,5 +1,6 @@
 from config import *
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from genai.accommodation import get_accommodation
 from genai.transportation import get_transportation
 from genai.activities import get_activities
