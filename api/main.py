@@ -33,6 +33,15 @@ class ActivitiesInput(BaseModel):
     location: str
     duration: str
 
+class TravelPlanInput(BaseModel):
+    from_location: str
+    to_location: str
+    budget: str
+    duration: str
+    accommodation: dict
+    transportation: dict
+    activities: dict
+
 @app.get('/')
 def available_apis():
     return {"accommodation": "https://travel-planner-api-b6l8.onrender.com/adventuro/accommodation",
