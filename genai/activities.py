@@ -2,14 +2,14 @@ from agent.react_agent import Agent
 from .prompts import activities_prompt
 import re
 import json
+import asyncio
 
-# get transportation details
-def get_activities(location, duration):
+asyncio def get_activities(location, duration):
 
     agent = Agent(react_prompt=activities_prompt)
 
     prompt = f"Find me all activities and attractions available in {location} for a {duration} trip."
-    activities = agent(prompt)
+    activities = await asyncio.to_thread(agent, prompt)
 
     json_fence_pattern = r"```json(.*?)```"
     matches = re.findall(json_fence_pattern, activities, re.DOTALL)

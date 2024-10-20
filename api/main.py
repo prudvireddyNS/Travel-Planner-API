@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from genai.accommodation import get_accommodation
 from genai.transportation import get_transportation
 from genai.activities import get_activities
+from genai.travel_plan import get_travel_plan
 
 
 app = FastAPI()
@@ -32,26 +33,51 @@ class ActivitiesInput(BaseModel):
     location: str
     duration: str
 
+@app.get('/')
+def available_apis():
+    return {"accommodation": "https://travel-planner-api-b6l8.onrender.com/adventuro/accommodation",
+            "transportation": "https://travel-planner-api-b6l8.onrender.com/adventuro/transportation",
+            "activities": "https://travel-planner-api-b6l8.onrender.com/adventuro/activities",
+            "travel plan": "https://travel-planner-api-b6l8.onrender.com/adventuro/travel-plan"
+            }
+
 @app.post('/adventuro/accommodation')
-def accommodation(input: AccommodationInput):
+async def accommodation(input: AccommodationInput):
     try:
-        details = get_accommodation(location=input.location, budget=input.budget, duration=input.duration)
+        print("ACC")
+        details = await get_accommodation(location=input.location, budget=input.budget, duration=input.duration)
         return details
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post('/adventuro/transportation')
-def transportation(input: TransportationInput):
+async def transportation(input: TransportationInput):
     try:
-        details = get_transportation(from_location=input.from_location, to_location=input.to_location, budget=input.budget)
+        print("TRANS")
+        details = await get_transportation(from_location=input.from_location, to_location=input.to_location, budget=input.budget)
         return details
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post('/adventuro/activities')
-def activities(input: ActivitiesInput):
+async def activities(input: ActivitiesInput):
     try:
-        details = get_activities(location=input.location, duration=input.duration)
+        print("ACT")
+        details = await get_activities(location=input.location, duration=input.duration)
+        return details
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post('/adventuro/travel-plan')
+async def travel_plan(input: TravelPlanInput):
+    try:
+        details = await get_travel_plan(from_location= input.from_location, 
+                                  to_location= input.to_location, 
+                                  budget= input.budget, 
+                                  duration= input.duration, 
+                                  accommodation= input.accommodation, 
+                                  transportation= input.transportation, 
+                                  activities= input.activities)
         return details
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
