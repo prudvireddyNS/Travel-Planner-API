@@ -4,7 +4,7 @@ import re
 import json
 import asyncio
 
-asyncio def get_activities(location, duration):
+async def get_activities(location, duration):
 
     agent = Agent(react_prompt=activities_prompt)
 
