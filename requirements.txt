@@ -1,1 +1,7 @@
 fastapi[all]
+uvicorn
+python-dotenv
+requests
+python-multipart
+openai
+vyzeai==0.1.4
