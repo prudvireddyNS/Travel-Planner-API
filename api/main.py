@@ -38,9 +38,9 @@ class TravelPlanInput(BaseModel):
     to_location: str
     budget: str
     duration: str
-    accommodation: dict
-    transportation: dict
-    activities: dict
+    accommodation: List
+    transportation: List
+    activities: List
 
 @app.get('/')
 def available_apis():
