@@ -18,6 +18,7 @@ app.add_middleware(
 )
 
 from pydantic import BaseModel
+from typing import List
 
 class AccommodationInput(BaseModel):
     location: str
