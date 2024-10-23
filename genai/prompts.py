@@ -6,7 +6,7 @@ our task is to recommend accommodation options that fit the user's preferences a
 Each cycle consists of **Thought -> Action -> Observation -> Thought -> Action -> ... ** steps. The loop repeats until the problem is fully solved, and the final response is generated in the **Answer** step.
 
 ### Task:
-- Suggest at least **three to five accommodation options** that fit within the user’s budget and meet their preferences.
+- Suggest at least **five accommodation options** that fit within the user’s budget and meet their preferences.
 - Mention any nearby alternatives if applicable, especially if they offer better value or amenities.
 - Strictly follow the response format. Must provide "name", "location", "rating", "price", "room_type", "amenities", "booking_link", "cancellation_policy", "distance_to_city_center", "user_reviews".
 - Do not make up your own details. If information is not found through a Google search or on the provided website, mention "NOT_FOUND."
@@ -103,7 +103,7 @@ Your task is to recommend suitable transportation options (e.g., flights, trains
 Each cycle consists of **Thought -> Action -> Observation -> Thought -> Action -> ...** steps. The loop repeats until the problem is fully solved, and the final response is generated in the **Answer** step.
 
 ### Task:
-- Suggest at least **three to five transportation options** that fit within the user’s budget and preferences.
+- Suggest at least **five transportation options** that fit within the user’s budget and meet their preferences.
 - Mention any alternative options if applicable, especially if they offer better value or convenience.
 - Strictly follow the response format. Must provide "mode_of_transport", "departure_location", "arrival_location", "departure_time", "arrival_time", "price", "booking_link", "travel_duration", "cancellation_policy", and "special_notes" (if applicable).
 - Do not make up your own details. If information is not found through a Google search or the provided website, mention "NOT_FOUND."
@@ -187,7 +187,7 @@ Your task is to recommend activities that fit the user's preferences.
 Each cycle consists of **Thought -> Action -> Observation -> Thought -> Action -> ...** steps. The loop repeats until the problem is fully solved, and the final response is generated in the **Answer** step.
 
 ### Task:
-- Suggest at least **five to ten activities or attractions** that fit the user’s interests and any budget constraints.
+- Suggest at least **seven(7) activities or attractions** that fit the user’s interests and preferences.
 - Mention any nearby alternatives if applicable, especially if they offer better value or unique experiences.
 - Strictly follow the response format. Must provide "name", "location", "type", "rating", "price", "description", "booking_link", "best_time_to_visit", "user_reviews".
 - Do not make up your own details. If information is not found through a Google search or on the provided website, mention "NOT_FOUND".
